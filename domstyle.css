@@ -1,0 +1,267 @@
+/* Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap');
+
+/* General Styles */
+body {
+  font-family: 'Quicksand', sans-serif;
+  background: linear-gradient(135deg, #6a11cb, #2575fc);
+  background-size: 400% 400%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  overflow: hidden;
+  animation: gradientShift 15s infinite alternate ease-in-out;
+}
+
+/* Container - Glassmorphism Effect */
+.container {
+  background: rgba(255, 255, 255, 0.15);
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(10px);
+  text-align: center;
+  width: 380px;
+  transition: all 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+  animation: fadeIn 1s ease-in-out, floatContainer 6s ease-in-out infinite alternate;
+}
+
+.container:hover {
+  transform: scale(1.05);
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.3);
+}
+
+/* Title */
+h1 {
+  color: #fff;
+  font-size: 26px;
+  font-weight: 600;
+  margin-bottom: 15px;
+  letter-spacing: 1px;
+  animation: slideIn 1s ease-in-out, glowText 2s infinite alternate;
+}
+
+/* Input and Button Wrapper */
+.input-group {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  animation: fadeIn 1.2s ease-in-out;
+}
+
+/* Input Field */
+input {
+  flex: 1;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  outline: none;
+  transition: all 0.3s ease-in-out;
+  animation: fadeIn 1.4s ease-in-out, pulseInput 2s infinite alternate;
+}
+
+input:focus {
+  box-shadow: 0px 0px 12px rgba(255, 255, 255, 0.8);
+  transform: translateY(-2px);
+}
+
+/* Add Task Button */
+button {
+  background: #ffcc00;
+  color: #333;
+  border: none;
+  padding: 12px 18px;
+  cursor: pointer;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: bold;
+  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+  animation: fadeIn 1.6s ease-in-out, pulseButton 2s infinite alternate;
+}
+
+button:hover {
+  background: #ffdd33;
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 5px 15px rgba(255, 204, 0, 0.4);
+}
+
+button:active {
+  transform: translateY(0) scale(0.95);
+}
+
+/* Task List */
+ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 20px;
+  animation: fadeIn 1.8s ease-in-out;
+}
+
+li {
+  background: rgba(255, 255, 255, 0.2);
+  color: rgb(69, 25, 6);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px;
+  border-radius: 8px;
+  margin-top: 10px;
+  font-size: 18px;
+  font-weight: 500;
+  transition: all 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.5s ease-in-out forwards;
+}
+
+li:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: translateX(5px);
+}
+
+li:nth-child(odd) {
+  animation-delay: 0.2s;
+}
+
+li:nth-child(even) {
+  animation-delay: 0.4s;
+}
+
+/* Delete Button */
+.deleteme {
+  background-color: red;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  cursor: pointer;
+  border-radius: 6px;
+  font-size: 14px;
+  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+  font-weight: bold;
+  animation: pulseDelete 2s infinite alternate;
+}
+
+.deleteme:hover {
+  background-color: #ff3333;
+  transform: scale(1.1) rotate(5deg);
+}
+
+/* Enhanced Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeOut {
+  to {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+}
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes floatContainer {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes glowText {
+  from {
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+  }
+  to {
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.8), 0 0 20px rgba(255, 255, 255, 0.5);
+  }
+}
+
+@keyframes pulseInput {
+  from {
+    box-shadow: 0 0 0 rgba(255, 255, 255, 0.2);
+  }
+  to {
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.4);
+  }
+}
+
+@keyframes pulseButton {
+  from {
+    box-shadow: 0 0 0 rgba(255, 204, 0, 0.2);
+  }
+  to {
+    box-shadow: 0 0 15px rgba(255, 204, 0, 0.5);
+  }
+}
+
+@keyframes pulseDelete {
+  from {
+    box-shadow: 0 0 0 rgba(255, 0, 0, 0.2);
+  }
+  to {
+    box-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+  }
+}
+
+/* Add animation for completed tasks */
+.completed {
+  text-decoration: line-through;
+  opacity: 0.7;
+  animation: taskComplete 0.5s ease-in-out;
+}
+
+@keyframes taskComplete {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
